@@ -11,7 +11,7 @@ class Solution {
             if (ls == rs) {
                 return i;
             }
-            ls += nums[i]; // <- semicolon added here
+            ls += nums[i];
         }
 
         return -1;
