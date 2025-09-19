@@ -1,5 +1,4 @@
-import java.util.List;
-import java.util.ArrayList;
+import java.util.*;
 
 class Solution {
     public List<List<String>> partition(String s) {
@@ -8,7 +7,6 @@ class Solution {
         backtrack(0, s, path, res);
         return res;
     }
-
     static boolean pal(String s, int start, int end) {
         while (start <= end) {
             if (s.charAt(start++) != s.charAt(end--))
