@@ -1,21 +1,15 @@
-import java.util.HashMap;
-
 public class Solution {
     public boolean isAnagram(String s, String t) {
-        if (s.length() != t.length()) return false;
-
-        HashMap<Character, Integer> map = new HashMap<>();
-
-        for (char c : s.toCharArray()) {
-            map.put(c, map.getOrDefault(c, 0) + 1);
+        if (s.length() != t.length()) {
+            return false;
         }
 
-        for (char c : t.toCharArray()) {
-            if (!map.containsKey(c)) return false;
-            map.put(c, map.get(c) - 1);
-            if (map.get(c) < 0) return false;
+        HashMap<Character, Integer> countS = new HashMap<>();
+        HashMap<Character, Integer> countT = new HashMap<>();
+        for (int i = 0; i < s.length(); i++) {
+            countS.put(s.charAt(i), countS.getOrDefault(s.charAt(i), 0) + 1);
+            countT.put(t.charAt(i), countT.getOrDefault(t.charAt(i), 0) + 1);
         }
-
-        return true;
+        return countS.equals(countT);
     }
 }
